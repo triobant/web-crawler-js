@@ -1,0 +1,10 @@
+{
+  "name": "web-crawler-js",
+  "version": "1.0.0",
+  "description": "SEO link analyzer",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "triobant"
+}
