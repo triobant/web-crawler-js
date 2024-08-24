@@ -1,3 +1,5 @@
+import { JSDOM } from  'jsdom'
+
 function normalizeURL(url) {
     const urlObj = new URL(url)
     let fullPath = `${urlObj.host}${urlObj.pathname}`
@@ -7,4 +9,7 @@ function normalizeURL(url) {
     return fullPath
 }
 
-export { normalizeURL }
+function getURLsFromHTML(html, baseURL) {
+}
+
+export { normalizeURL, getURLsFromHTML }
