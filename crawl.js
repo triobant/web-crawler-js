@@ -31,4 +31,7 @@ function getURLsFromHTML(html, baseURL) {
     return urls
 }
 
-export { normalizeURL, getURLsFromHTML }
+function crawlPage(currentURL) {
+}
+
+export { normalizeURL, getURLsFromHTML, crawlPage }
