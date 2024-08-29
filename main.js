@@ -1,6 +1,7 @@
 import { argv } from 'node:process'
+import { crawlPage } from './crawl.js'
 
-function main() {
+async function main() {
     if (argv.length < 3) {
         console.log("not enough args")
     }
@@ -10,6 +11,8 @@ function main() {
     const baseURL = argv[2]
 
     console.log(`starting crawl of: ${baseURL}...`)
+
+    await crawlPage(baseURL)
 }
 
 main()
