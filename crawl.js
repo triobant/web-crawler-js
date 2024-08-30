@@ -31,8 +31,28 @@ function getURLsFromHTML(html, baseURL) {
     return urls
 }
 
+async function fetchHTML(url) {
+    let res
+    try {
+        res = await fetch(url)
+    } catch (err) {
+        throw new Error(`Got Network error: ${err.message}`)
+    }
+
+    if (res.status > 399) {
+        throw new Error(`Got HTTP error: ${res.status} ${res.statusText}`)
+    }
+
+    const contentType = res.headers.get('content-type')
+    if (!contentType || !contentType.includes('text/html')) {
+        throw new Error(`Got non-HTML response: ${contentType}`)
+    }
+
+    return res.text()
+}
+
+// use default args to prime the first call
 async function crawlPage(currentURL) {
-    // fetch and parse the html of the currentURL
     console.log(`crawling ${currentURL}`)
 
     let res
